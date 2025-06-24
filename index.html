@@ -2,19 +2,26 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <title>Тест market:// ссылки</title>
+  <title>Тест market:// и intent://</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body  {font-family: sans-serif; display:flex; height:100vh; align-items:center; justify-content:center}
-    a     {padding:1rem 2rem; border-radius:12px; background:#4f8cf7; color:#fff; text-decoration:none; font-size:1.1rem}
-    a:active {opacity:.8}
+    body  {font-family:sans-serif;display:flex;flex-direction:column;gap:1.2rem;
+           align-items:center;justify-content:center;height:100vh;margin:0}
+    a     {padding:1rem 2rem;border-radius:12px;background:#4f8cf7;color:#fff;
+           text-decoration:none;font-size:1.05rem;transition:opacity .15s}
+    a:active{opacity:.8}
   </style>
 </head>
 <body>
 
-  <!-- market-deeplink -->
+  <!-- Открытие через market:// -->
   <a href="market://details?id=com.xsafe.browser">
-    Открыть XSafe Browser в Google Play
+    market://details?id=com.xsafe.browser
+  </a>
+
+  <!-- Открытие через intent:// с fallback на Play Store -->
+  <a href="intent://details?id=com.xsafe.browser#Intent;scheme=market;package=com.android.vending;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.xsafe.browser;end">
+    intent:// → XSafe Browser (с fallback)
   </a>
 
 </body>
